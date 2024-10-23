@@ -6,18 +6,12 @@ require('mason').setup({})
 	require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = {'tsserver', 'rust_analyzer', 'clangd', 'gopls'},
+  ensure_installed = {'tsserver', 'rust_analyzer', 'clangd', 'gopls', 'jdtls'},
   handlers = {
 	  function(server_name)
 		  require('lspconfig')[server_name].setup({})
 	  end,
   }
-})
-
-lsp_zero.set_preferences({
-    on_attach = function(client, bufnr)
-        client.server_capabilities.semanticTokensProvider = nil
-    end,
 })
 
 local cmp = require('cmp')
@@ -55,7 +49,5 @@ cmp.setup({
 lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
-
-lsp_zero.preset('recommended')
 
 lsp_zero.setup()

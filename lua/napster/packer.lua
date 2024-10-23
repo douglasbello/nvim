@@ -60,12 +60,21 @@ use ({
 })
 
 use {
-    'maxmx03/solarized.nvim',
-    config = function()
-      vim.o.background = 'dark' -- or 'light'
+    'bluz71/vim-moonfly-colors',
+     as = moonfly,
 
-      vim.cmd.colorscheme 'solarized'
+     config = function()
+        vim.o.background = 'dark'
+        vim.cmd.colorscheme 'moonfly'
     end
+}
+
+use {
+    'machakann/vim-highlightedyank'
+}
+
+use {
+    'terryma/vim-multiple-cursors'
 }
 
 use ('preservim/nerdtree')
